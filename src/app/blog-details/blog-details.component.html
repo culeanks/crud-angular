@@ -1,0 +1,70 @@
+<div *ngIf="currentBlog" class="edit-form">
+    <h4>Blog</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentBlog.title"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="summary">Summary</label>
+        <input
+          type="text"
+          class="form-control"
+          id="summary"
+          [(ngModel)]="currentBLog.summary"
+          name="summary"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="author">Author</label>
+        <input
+          type="text"
+          class="form-control"
+          id="author"
+          [(ngModel)]="currentBLog.author"
+          name="author"
+        />
+      </div>
+  
+      <!-- <div class="form-group">
+        <label><strong>Status:</strong></label>
+        {{ currentTutorial.published ? "Published" : "Pending" }}
+      </div> -->
+    </form>
+  
+    <!-- <button
+      class="badge badge-primary mr-2"
+      *ngIf="currentBlog.published"
+      (click)="updatePublished(false)"
+    >
+      UnPublish
+    </button>
+    <button
+      *ngIf="!currentTutorial.published"
+      class="badge badge-primary mr-2"
+      (click)="updatePublished(true)"
+    >
+      Publish
+    </button> -->
+  
+    <button class="badge badge-danger mr-2" (click)="deleteBlog()">
+      Delete
+    </button>
+  
+    <button type="submit" class="badge badge-success" (click)="updateBlog()">
+      Update
+    </button>
+    <p>{{ message }}</p>
+</div>
+  
+  <div *ngIf="!currentBlog">
+    <br />
+    <p>Cannot access this Blog...</p>
+  </div>
